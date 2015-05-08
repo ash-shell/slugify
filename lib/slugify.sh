@@ -8,7 +8,7 @@
 #################################################
 Slugify__slugify() {
     local output="$1"
-    output="$(Slugify_space_to_dash "$output")"
+    output="$(Slugify_alpha_numeric "$output")"
     output="$(Slugify_lowercase "$output")"
     echo "$output"
 }
@@ -23,12 +23,19 @@ Slugify_lowercase() {
 }
 
 #################################################
-# This function will convert all spaces to
-# dashes for a string
+# This function will convert all non alpha-numeric
+# characters to dashes for a string
 #
-# @param $1: The string to convert spaces to
-#   dashes
+# @param $1: The string to convert
 #################################################
-Slugify_space_to_dash(){
-    echo "${1// /-}"
+Slugify_alpha_numeric(){
+    # Determining flag for extended regex
+    local sed_flag="-r"
+    if [[ "$Ash__active_platform" = "$Ash__PLATFORM_FREEBSD"
+        || "$Ash__active_platform" = "$Ash__PLATFORM_DARWIN" ]]; then
+        sed_flag="-E"
+    fi
+
+    # Replacing all non alpha-numeric chars with a dash
+    echo "$(echo "$1" | sed "$sed_flag" 's/[^a-zA-Z0-9\-]+/-/g')"
 }
