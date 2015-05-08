@@ -1,0 +1,11 @@
+Usage:
+
+    slugify $string [--quiet]
+    slugify:main $string [--quiet]
+        Converts any `$string` into a valid slug.
+
+        The `$string` param will have to be quoted if there are
+        spaces in the string.
+
+        Adding the `--quiet` flag will echo only the result, and
+        will not echo the logger prefix.
