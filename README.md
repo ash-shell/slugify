@@ -53,4 +53,4 @@ Follow the same usage as described in "Module Usage", but instead of using `Ash_
 
 ## License
 
-[MIT](license.txt)
+[MIT](LICENSE.md)
