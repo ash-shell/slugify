@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Ash_import "slugify"
+Ash__import "slugify"
 
 #################################################
 # This function will convert $1 into a valid

@@ -29,7 +29,7 @@ Even though Ash-Slugify is part of the Ash core, you will still need to import i
 Add this line to the top of any file called from Ash:
 
 ```bash
-Ash_import "slugify"
+Ash__import "slugify"
 ```
 
 After including this library, you are free to start using it.
@@ -49,7 +49,7 @@ some-string
 
 ### Non Ash Users
 
-Follow the same usage as described in "Module Usage", but instead of using `Ash_import "slugify"` use `. {path_to_slugify}/lib/slugify.sh`.
+Follow the same usage as described in "Module Usage", but instead of using `Ash__import "slugify"` use `. {path_to_slugify}/lib/slugify.sh`.
 
 ## License
 
