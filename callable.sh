@@ -10,6 +10,11 @@ Ash__import "slugify"
 # @param $2: `--quiet` for no logger prefix
 #################################################
 Slugify__callable_main(){
+    if [[ "$1" = "" ]]; then
+        Slugify__callable_help
+        return
+    fi
+
     if [[ -n "$2" && "$2" = "--quiet" ]]; then
         Logger__disable_prefix
     fi
