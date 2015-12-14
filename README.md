@@ -1,14 +1,14 @@
-# Ash-Slugify
+# Slugify
 
-Ash-Slugify is an [Ash](https://github.com/BrandonRomano/ash) module that allows you to convert strings into slugs.
+Slugify is an [Ash](https://github.com/ash-shell/ash) module that allows you to convert strings into slugs.
 
 ## Getting started
 
 ### Ash Users
 
-Ash-Slugify is part of the Ash core, so you won't need to install it.
+Slugify is part of the Ash core, so you won't need to install it.
 
-You can either call Ash-Slugify straight from the command line, or as an imported library.
+You can either call Slugify straight from the command line, or as an imported library.
 
 #### Command Line Usage
 
@@ -24,7 +24,7 @@ Will output:
 
 #### Module Usage
 
-Even though Ash-Slugify is part of the Ash core, you will still need to import it into your modules.
+Even though Slugify is part of the Ash core, you will still need to import it into your modules.
 
 Add this line to the top of any file called from Ash:
 
