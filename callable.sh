@@ -1,7 +1,5 @@
 #!/bin/bash
 
-Ash__import "slugify"
-
 #################################################
 # This function will convert $1 into a valid
 # slug
