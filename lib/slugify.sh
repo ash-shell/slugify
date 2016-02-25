@@ -31,8 +31,9 @@ Slugify_lowercase() {
 Slugify_alpha_numeric(){
     # Determining flag for extended regex
     local sed_flag="-r"
-    if [[ "$Ash__active_platform" = "$Ash__PLATFORM_FREEBSD"
-        || "$Ash__active_platform" = "$Ash__PLATFORM_DARWIN" ]]; then
+    local platform="$(Ash__get_active_platform)"
+    if [[ "$platform" = $Ash__PLATFORM_FREEBSD
+        || "$platform" = $Ash__PLATFORM_DARWIN ]]; then
         sed_flag="-E"
     fi
 

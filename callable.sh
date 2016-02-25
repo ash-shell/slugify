@@ -24,5 +24,5 @@ Slugify__callable_main(){
 # Prints out usage of this module
 #################################################
 Slugify__callable_help(){
-    more "$Ash__active_module_directory/HELP.txt"
+    more "$Ash__ACTIVE_MODULE_DIRECTORY/HELP.txt"
 }
