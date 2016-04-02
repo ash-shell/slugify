@@ -10,7 +10,7 @@
 Slugify__callable_main(){
     if [[ "$1" = "" ]]; then
         Slugify__callable_help
-        return
+        return 1
     fi
 
     if [[ -n "$2" && "$2" = "--quiet" ]]; then

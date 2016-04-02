@@ -5,38 +5,44 @@
 # slug
 #
 # @param $1: The string to slugify
+# @returns: The slugified string
 #################################################
 Slugify__slugify() {
+    # Params
     local output="$1"
-    output="$(Slugify_alpha_numeric "$output")"
-    output="$(Slugify_lowercase "$output")"
+    local extended_flag=$(Slugify_sed_flag)
+
+    # Convert all chars to lowercase
+    output="$(echo "$output" | awk '{print tolower($0)}')"
+
+    # Remove all single quotes
+    output=$(echo "$output" | sed "-$extended_flag" "s/\'//g")
+
+    # Convert all non-alpha-numeric to dashes (-)
+    output=$(echo "$output" | sed "-$extended_flag" "s/[^a-zA-Z0-9-]+/-/g")
+
+    # Replace multple dash occurances with singles
+    output="$(echo "$output" | sed "-$extended_flag" 's/-+/-/g')"
+
+    # Remove trailing dashes
+    output="$(echo "$output" | sed "-$extended_flag" 's/^-+|-+$//g')"
+
+    # OK
     echo "$output"
 }
 
 #################################################
-# This function will convert $1 to all lowercase
+# Determines the "extended" sed flag, depending
+# on the environment
 #
-# @param $1: The string to lowercase
+# @return: The flag name (without dash)
 #################################################
-Slugify_lowercase() {
-    echo "$(echo $1 | awk '{print tolower($0)}')"
-}
-
-#################################################
-# This function will convert all non alpha-numeric
-# characters to dashes for a string
-#
-# @param $1: The string to convert
-#################################################
-Slugify_alpha_numeric(){
-    # Determining flag for extended regex
-    local sed_flag="-r"
+Slugify_sed_flag(){
+    local sed_flag="r"
     local platform="$(Ash__get_active_platform)"
     if [[ "$platform" = $Ash__PLATFORM_FREEBSD
         || "$platform" = $Ash__PLATFORM_DARWIN ]]; then
-        sed_flag="-E"
+        sed_flag="E"
     fi
-
-    # Replacing all non alpha-numeric chars with a dash
-    echo "$(echo "$1" | sed "$sed_flag" 's/[^a-zA-Z0-9\-]+/-/g')"
+    echo "$sed_flag"
 }

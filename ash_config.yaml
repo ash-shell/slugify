@@ -1,4 +1,5 @@
-name: slugify
+name: Slugify
 package: github.com/ash-shell/slugify
 default_alias: slugify
 callable_prefix: Slugify
+test_prefix: Slugify

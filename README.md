@@ -46,6 +46,16 @@ Will output:
 some-string
 ```
 
+## Running Tests
+
+Tests are written using the [official test](https://github.com/ash-shell/test) module
+
+You can run tests by running this command, after slugify is installed:
+
+```sh
+ash test slugify
+```
+
 ## License
 
 [MIT](LICENSE.md)
