@@ -16,7 +16,7 @@ Slugify__slugify() {
     output="$(echo "$output" | awk '{print tolower($0)}')"
 
     # Remove all single quotes
-    output=$(echo "$output" | sed "-$extended_flag" "s/\'//g")
+    output=$(echo "$output" | sed "-$extended_flag" "s/'//g")
 
     # Convert all non-alpha-numeric to dashes (-)
     output=$(echo "$output" | sed "-$extended_flag" "s/[^a-zA-Z0-9-]+/-/g")
