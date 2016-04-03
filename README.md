@@ -1,5 +1,7 @@
 # Slugify
 
+[![Build Status](https://travis-ci.org/ash-shell/slugify.svg?branch=master)](https://travis-ci.org/ash-shell/slugify)
+
 Slugify is an [Ash](https://github.com/ash-shell/ash) module that allows you to convert strings into slugs.
 
 ## Getting started
